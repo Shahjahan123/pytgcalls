@@ -79,6 +79,14 @@ export function getBuiltSingleCommands(stringCommand: string): CommandsInfo {
         after: afterCmd.split(':_cmd_:').filter(e =>  e),
     };
 }
+export function getErrorMessage(error: string): string {
+    if (error.includes('APP_UPGRADE_NEEDED')) {
+        return 'APP_UPGRADE_NEEDED';
+    } else if (error.includes('No transport') || error.includes('UNMUTE_NEEDED')) {
+        return 'UNMUTE_NEEDED';
+    }
+    return 'JOIN_ERROR';
+}
 
 
 export enum LogLevel {

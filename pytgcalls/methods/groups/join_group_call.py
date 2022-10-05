@@ -8,9 +8,9 @@ from ...exceptions import InvalidStreamMode
 from ...exceptions import NoActiveGroupCall
 from ...exceptions import NodeJSNotRunning
 from ...exceptions import NoMtProtoClientSet
-from ...exceptions import RTMPStreamNeeded
+# from ...exceptions import RTMPStreamNeeded
 from ...exceptions import TelegramServerError
-from ...exceptions import UnMuteNeeded
+# from ...exceptions import UnMuteNeeded
 from ...file_manager import FileManager
 from ...mtproto import BridgedClient
 from ...scaffold import Scaffold
@@ -281,10 +281,6 @@ class JoinGroupCall(Scaffold):
                         raise AlreadyJoinedError()
                     elif isinstance(result, ErrorDuringJoin):
                         raise TelegramServerError()
-                    elif isinstance(result, UpgradeNeeded):
-                        raise RTMPStreamNeeded()
-                    elif isinstance(result, MutedCall):
-                        raise UnMuteNeeded()
                 else:
                     raise NoActiveGroupCall()
             else:

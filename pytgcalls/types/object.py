@@ -47,5 +47,3 @@ class Object:
             return UpgradeNeeded(chat_id)
         elif event_name == 'PLAYED_TIME':
             return StreamTime(data['time'])
-        elif event_name == 'UNMUTE_NEEDED':
-            return MutedCall(chat_id)
